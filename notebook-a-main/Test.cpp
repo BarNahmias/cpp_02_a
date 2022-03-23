@@ -1,4 +1,3 @@
-
 #include "doctest.h"
 #include <iostream>
 #include "Notebook.hpp"
@@ -42,12 +41,21 @@ TEST_CASE("Bad input") {
 // Invalid character
  
 
-TEST_CASE("Bad input") {
+TEST_CASE("Bad input-") {
 
     CHECK_THROWS(notebook.write(0, 0, 99 ,Direction::Horizontal, "~"));
     CHECK_THROWS(notebook.write( 9, 3, 33,Direction::Horizontal , "Againt~the clock"));
     CHECK_THROWS(notebook.write( 9, 2, 44 ,Direction::Horizontal, "All In The Same Boat~~"));
 }
+
+// not firs time write
+
+TEST_CASE("not firs time write") {
+
+    notebook.write(0, 0, 0 ,Direction::Horizontal, "Actions speak louder than words");
+    CHECK_THROWS(notebook.write(0, 0, 0 ,Direction::Horizontal, "Actions speak louder than words"));
+    notebook.write(9, 3,33 ,Direction::Horizontal, "Add insult")
+    CHECK_THROWS(notebook.write( 9, 3, 33,Direction::Horizontal , "Add insult to injury"));
 
 
 
@@ -112,3 +120,4 @@ TEST_CASE("Good input") {
     notebook.erase(9, 3, 10 ,Direction::Horizontal,4);
 	CHECK(notebook.read(9, 3, 10,Direction::Horizontal ,8)=="~~~~nt t");
 }
+
