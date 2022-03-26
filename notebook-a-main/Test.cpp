@@ -54,9 +54,9 @@ TEST_CASE("not firs time write") {
 
     notebook.write(0, 0, 0 ,Direction::Horizontal, "Actions speak louder than words");
     CHECK_THROWS(notebook.write(0, 0, 0 ,Direction::Horizontal, "Actions speak louder than words"));
-    notebook.write(9, 3,33 ,Direction::Horizontal, "Add insult")
+    notebook.write(9, 3,33 ,Direction::Horizontal, "Add insult");
     CHECK_THROWS(notebook.write( 9, 3, 33,Direction::Horizontal , "Add insult to injury"));
-
+}
 
 
 // Position error 
